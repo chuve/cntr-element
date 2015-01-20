@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>Utils: Cntr-element</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			margin: 500px 0;
+		}
+
+		.container {
+			width: 50%;
+			height: 1500px;
+			background: black;
+			margin: 0 auto;
+		}
+
+		.spinner {
+			position: relative;
+			width: 100px;
+			height: 100px;
+			background: tomato;
+			margin: 0 auto;
+			border: 25px solid grey;
+		}
+
+		.wrapper {
+			position: relative;
+			margin-top: 10%;
+		}
+	</style>
+</head>
+<script src="/static/common/vendor-libs/requirejs/require.min.js"></script>
+<script>
+	requirejs.config({
+		'cntr-element': '/static/common/utils/cntr-element/cntr-element'
+	})
+</script>
+<body>
+
+<div class="wrapper">
+	<div class="container">
+		<div class="spinner"></div>
+	</div>
+</div>
+
+</body>
+<script type="text/javascript">
+	require(['cntr-element'], function(CntrElement){
+		var cntrElement = new CntrElement({
+			container: document.querySelector('.container'),
+			element: document.querySelector('.spinner'),
+			padding: 50,
+			debug: true
+		});
+	});
+</script>
+</html>
